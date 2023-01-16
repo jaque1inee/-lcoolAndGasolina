@@ -27,12 +27,10 @@ class ResultViewController: UIViewController {
 
 extension ResultViewController: ResultDelegate {
     func calculateAgainButton() {
-        let vc = CalculatorViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     func tappedBackButton() {
-        let vc = CalculatorViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -53,16 +53,21 @@ extension CalculatorViewController: CalculatorScreenDelegate {
             let ethanolPrice: Double = (formatter.number(from: screen?.ethanolPriceTextField.text ?? "0.0") as? Double) ?? 0.0
             let gasPrice: Double = (formatter.number(from: screen?.gaslPriceTextField.text ?? "0.0") as? Double) ?? 0.0
             
+            let vc = ResultViewController()
             if (ethanolPrice / gasPrice) > 0.7 {
-                let vc = ResultViewController()
                 vc.resultCalculator = "Gasolina"
-                navigationController?.pushViewController(vc, animated: true)
 
             } else {
-                let vc = ResultViewController()
                 vc.resultCalculator = "Álcool"
-                navigationController?.pushViewController(vc, animated: true)
-            } 
+            }
+            clearViewData()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        func clearViewData() {
+            
+            screen?.ethanolPriceTextField.text = ""
+            screen?.gaslPriceTextField.text = ""
         }
     }
     
